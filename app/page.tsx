@@ -1,12 +1,11 @@
 // app/page.tsx
-import {Button} from '@nextui-org/button'; 
+import { Counter } from '@/components/counter';
 
 export default function Page() {
   return (
     <div>
-      <Button>Click me</Button>
+      <Counter />
       <div className='min-h-screen'>
-        saass
       </div>
     </div>
   )

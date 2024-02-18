@@ -10,10 +10,6 @@ export const siteConfig = {
     }
 	],
 	navMenuItems: [
-		{
-			label: "Joblist",
-			href: "/",
-		},
     {
       label: "About",
       href: "/about",
