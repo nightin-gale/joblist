@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import clsx from "clsx";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -40,12 +41,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">{children}</main>
+            <main className="min-h-screen overflow-auto w-full">{children}</main>
             <Footer />
           </div>
         </Providers>
         <VercelAnalytics />
         <GoogleAnalytics token={`${process.env.GOOGLE_ANALYTICS_TOKEN}`} />
+        <VercelSpeedInsights />
       </body>
     </html>
   );

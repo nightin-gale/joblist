@@ -1,13 +1,13 @@
 // app/page.tsx
-import { Counter } from '@/components/counter';
+import { Counter } from "@/components/counter";
+import Joblist from "./components/Joblist";
 
 export default function Page() {
   return (
-    <div>
-      <Counter />
-      <div className='min-h-screen'>
+    <div className="flex flex-row justify-center overflow-auto">
+      <div className="w-[900px] pt-10">
+        <Joblist />
       </div>
     </div>
-  )
+  );
 }
-
