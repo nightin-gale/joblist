@@ -23,13 +23,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    // apple: "/apple-touch-icon.png",
   },
 };
 
@@ -41,7 +41,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="min-h-screen overflow-auto w-full">{children}</main>
+            <main>
+              <div className="min-h-[100svh] w-full">{children}</div>
+            </main>
             <Footer />
           </div>
         </Providers>
