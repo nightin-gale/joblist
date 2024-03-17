@@ -1,15 +1,10 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import clsx from "clsx";
-import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
-import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
-import Footer from "@/components/Footer";
-import { Providers } from "./providers";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Providers } from "@/app/providers";
 
 import type { Viewport } from "next";
 
@@ -29,7 +24,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
-    // apple: "/apple-touch-icon.png",
   },
 };
 
@@ -39,17 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main>
-              <div className="min-h-[100svh] w-full">{children}</div>
-            </main>
-            <Footer />
-          </div>
+          {children}
         </Providers>
-        <VercelAnalytics />
-        <GoogleAnalytics token={`${process.env.GOOGLE_ANALYTICS_TOKEN}`} />
-        <VercelSpeedInsights />
       </body>
     </html>
   );
