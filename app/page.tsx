@@ -1,6 +1,6 @@
 // app/page.tsx
 import { Counter } from "@/components/counter";
-import Joblist from "./components/Joblist";
+import Joblist from "@/app/components/Joblist";
 
 export default function Page() {
   return (

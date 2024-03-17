@@ -1,4 +1,4 @@
-import WarningBar from "./ui/WarningBar"
+import WarningBar from "@/app/admin/ui/WarningBar"
 
 export default function adminLayout({
   children
