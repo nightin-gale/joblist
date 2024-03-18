@@ -77,15 +77,15 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-          suppressHydrationWarning
-        />
+        {/* <Input */}
+        {/*   placeholder="Filter emails..." */}
+        {/*   value={(table.getColumn("email")?.getFilterValue() as string) ?? ""} */}
+        {/*   onChange={(event) => */}
+        {/*     table.getColumn("email")?.setFilterValue(event.target.value) */}
+        {/*   } */}
+        {/*   className="max-w-sm" */}
+        {/*   suppressHydrationWarning */}
+        {/* /> */}
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -93,7 +93,7 @@ export function DataTable<TData, TValue>({
             Columns
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent align="end" className="bg-[#FFFFFF]">
           {table
             .getAllColumns()
             .filter(

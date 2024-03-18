@@ -15,14 +15,17 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type Payment = {
-  id: string
-  amount: number
-  status: "pending" | "processing" | "success" | "failed"
-  email: string
+export type Job_Entry = {
+  uid: string
+  modified: string
+  company_name: string
+  position: string
+  location: string
+  DDL: string
+  keywords: string
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Job_Entry>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -45,26 +48,28 @@ export const columns: ColumnDef<Payment>[] = [
     enableSorting: false,
     enableHiding: false,
   },
+  { accessorKey: "uid", header: "UID"},
   {
-    accessorKey: "status",
-    header: "Status",
-  },
-  {
-    accessorKey: "email",
+    accessorKey: "modified",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Modified
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
     },
+    cell: ({ row }) => {
+      return (
+        <div>{row.getValue("modified")}</div>
+      )
+    }
   },
   {
-    accessorKey: "amount",
+    accessorKey: "company_name",
     header: ({ column }) => {
       return (
         <Button
@@ -72,21 +77,27 @@ export const columns: ColumnDef<Payment>[] = [
           className="text-right"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Company
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
     },
-
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"))
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount)
-
-      return <div className="text-right font-medium">{formatted}</div>
-    },
+  },
+  {
+    accessorKey: "position",
+    header: "Position",
+  },
+  {
+    accessorKey: "location",
+    header: "Location",
+  },
+  {
+    accessorKey: "DDL",
+    header: "DDL",
+  },
+  {
+    accessorKey: "keywords",
+    header: "Keywords",
   },
   {
     id: "actions",
@@ -104,13 +115,13 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent className="bg-[#FFFFFF]" align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => navigator.clipboard.writeText(payment.uid)}
             >
-              Copy payment ID
+              Copy  UID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem>View Detail</DropdownMenuItem>
+            <DropdownMenuItem>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
