@@ -27,7 +27,7 @@ async function getData(): Promise<Job_Entry[]> {
       uid: job.listing_id,
       modified: new Date(job.modified).toDateString(),
       company_name: job.company_name,
-      position: job.position,
+      job_title: job.job_title,
       location: location,
       DDL: job.DDL,
       keywords: keywords
