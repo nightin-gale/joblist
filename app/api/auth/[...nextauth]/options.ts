@@ -15,10 +15,10 @@ export const options: NextAuthOptions = {
       },
 
       async authorize(credentials, req) {
-        const user = { id: 1, name: process.env.JLUSER as string, password: process.env.JLPASSWORD as string}
+        const user = { id: 1, name: process.env.JLUSER as string, password: process.env.JLPASSWORD as string }
         if (credentials?.username === user.name && credentials.password === user.password) {
           return user as any
-        } else{
+        } else {
           return null
         }
         // const res = await fetch("/your/endpoint", {
@@ -36,5 +36,10 @@ export const options: NextAuthOptions = {
   ],
   session: {
     maxAge: 10 * 60, // expires after 10 minutes
+  },
+  events: {
+    signOut: async (message) => {
+      console.log("signOut", message)
+    }
   }
 }
