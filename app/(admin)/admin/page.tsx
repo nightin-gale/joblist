@@ -4,10 +4,12 @@ import { getServerSession } from "next-auth/next"
 
 import { fetchJobListPreview } from '@/lib/api'
 import { DataTable } from './ui/DataTable/DataTable'
-import { Job_Entry, columns} from './ui/DataTable/Columns'
+import { Job_Entry, columns } from './ui/DataTable/Columns'
 
 async function getData(): Promise<Job_Entry[]> {
+  try {
   const data = await fetchJobListPreview()
+
   const jobList = data.map((job: any) => {
 
     var location = job.location
@@ -36,6 +38,10 @@ async function getData(): Promise<Job_Entry[]> {
   // console.log(jobList)
   // console.log(jobList[0].position)
   return jobList
+  } catch (error) {
+    console.log(error)
+    return []
+  }
 }
 
 async function page() {

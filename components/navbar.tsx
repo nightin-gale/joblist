@@ -39,7 +39,7 @@ export const Navbar = () => {
 			}}
 			endContent={
 				<Kbd className="hidden lg:inline-block" keys={["command"]}>
-					K
+					e
 				</Kbd>
 			}
 			labelPlacement="outside"

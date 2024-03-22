@@ -16,14 +16,8 @@ import {
 import { Button } from "@/components/ui/button"
 import { deleteJobEntryById } from '@/lib/api'
 
-const DeleteEntryDialogue = ({ uid, closeMenu }: any) => {
+const DeleteEntryDialogue = ({ uid }: any) => {
 
-  // const [isMounted, setIsMounted] = React.useState(false)
-  // React.useEffect(() => {
-  //   setIsMounted(true)
-  // }, [])
-  // const router = useRouter();
-  
   const router = useRouter();
 
   return (
@@ -41,7 +35,14 @@ const DeleteEntryDialogue = ({ uid, closeMenu }: any) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={() => { deleteJobEntryById(uid); router.refresh(); closeMenu(false) }}>
+          <AlertDialogAction
+            onClick={() => {
+              if (uid) {
+                deleteJobEntryById(uid);
+              }
+              router.refresh()
+            }
+            }>
             Yes
           </AlertDialogAction>
         </AlertDialogFooter>

@@ -15,10 +15,10 @@ const WarningBar = () => {
         </Link>
       </div>
       <p className="font-extrabold text-destructive text-2xl">
-        You are in Privilaged <a>DANGER</a> Zone!
+        DEPRECATED: GO TO <a href="https://admin.joblist.org.uk/admin">admin.joblist.org.uk/admin </a>
       </p>
       <p className="font-extrabold text-warning-900 text-xl">
-        TESTING: ONLY DUMMY DATA
+        You are in Privilaged <a>DANGER</a> Zone!
       </p>
       <SingOut />
     </div>

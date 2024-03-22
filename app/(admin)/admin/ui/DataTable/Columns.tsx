@@ -102,15 +102,25 @@ export const columns: ColumnDef<Job_Entry>[] = [
     header: "Keywords",
   },
   {
+    id: "delete",
+    header: "Delete",
+    cell: ({ row }) => {
+      return (
+        <DeleteEntryDialogue uid={row.original.uid} />
+      )
+    }
+  },
+  {
     id: "actions",
     cell: ({ row }) => {
       const payment = row.original // access row data
 
-      const [isOpen, setIsOpen] = React.useState(false)
+      // const [isOpen, setIsOpen] = React.useState(false)
       return (
-        <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+        // <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+        <DropdownMenu >
           <DropdownMenuTrigger >
-            <Button onClick={()=> setIsOpen(!isOpen)} variant="ghost" className="h-8 w-8 p-0">
+            <Button  variant="ghost" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
@@ -124,7 +134,6 @@ export const columns: ColumnDef<Job_Entry>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View Detail</DropdownMenuItem>
-            <DeleteEntryDialogue uid={row.original.uid} closeMenu={setIsOpen}/>
           </DropdownMenuContent>
         </DropdownMenu>
       )
