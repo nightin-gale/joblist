@@ -2,7 +2,7 @@
 // when the bug is fixed, google analytics is available in next/third-parties directory
 import Script from "next/script";
 
-const GoogleAnalytics = ({token}: {token: string}) => {
+const GoogleAnalytics = ({ token }: { token: string }) => {
   return (
     <>
       <Script

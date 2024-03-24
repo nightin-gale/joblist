@@ -14,18 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Checkbox } from "@/components/ui/checkbox"
 import DeleteEntryDialogue from "../DeleteEntryDialogue"
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export type Job_Entry = {
-  uid: string
-  modified: string
-  company_name: string
-  job_title: string
-  location: string
-  DDL: string
-  keywords: string
-}
+import { Job_Entry } from "@/lib/types"
 
 export const columns: ColumnDef<Job_Entry>[] = [
   {
@@ -120,7 +109,7 @@ export const columns: ColumnDef<Job_Entry>[] = [
         // <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenu >
           <DropdownMenuTrigger >
-            <Button  variant="ghost" className="h-8 w-8 p-0">
+            <Button variant="ghost" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
