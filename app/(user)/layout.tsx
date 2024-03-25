@@ -16,6 +16,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <>
       <div className="relative flex flex-col h-screen">
         <Navbar />
+        <div className="w-full text-center font-bold py-3 text-xl">
+          JOIN US! We are looking for collaborators.
+          <a href="mailto:contact@yetin.net" className="text-black font-bold">
+            <span className="underline"> contact@yetin.net</span>
+          </a>
+        </div>
+
         <main>
           <div className="min-h-[100svh] w-full">{children}</div>
         </main>

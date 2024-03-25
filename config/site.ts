@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "UK Joblist",
+  name: "UK Joblist For Students, By Students",
 	description: "A Job-Listing for UK Students",
 	navItems: [
     {
