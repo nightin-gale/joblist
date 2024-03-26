@@ -40,14 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           {children}
         </Providers>
-
-        <Script
-          // src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
-          // async={true}
-          defer={true}
-        />
-
         <TurnstileClient />
       </body>
     </html>
