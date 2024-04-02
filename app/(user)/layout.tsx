@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <div className="w-full text-center font-bold py-3 text-xl">
           JOIN US! We are looking for collaborators.
-          <a href="mailto:contact@yetin.net" className="text-black font-bold">
-            <span className="underline"> contact@yetin.net</span>
+          <a href="mailto:contact@joblist.org.uk" className="text-black font-bold">
+            <span className="underline"> contact@joblist.org.uk</span>
           </a>
         </div>
 
